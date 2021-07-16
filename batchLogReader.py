@@ -99,6 +99,8 @@ def getTeamsFromLog(log,mrayAllowed):
 				ability='deltastream'
 			elif species == 'greninja' and ability == 'battlebond':
 				species = 'greninjaash'
+			elif species.startswith('darmanitan') and ability == 'zenmode':
+				species += 'zen'
 			else: 
 				for mega in megas:
 					if [species,item] == mega[:2]:
@@ -107,8 +109,10 @@ def getTeamsFromLog(log,mrayAllowed):
 							species +='x'
 						elif item.endswith('y'):
 							species += 'y'
-						if species in ['kyogremega','groudonmega']:
+						if species in ['kyogremega','groudonmega','dialgamega']:
 							species=species[:-4]+'primal'
+						elif species == 'eternatusmega':
+							species=species[:-4]+'eternamax'
 						ability=mega[2]
 						break
 
