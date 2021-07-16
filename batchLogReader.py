@@ -8,17 +8,15 @@ import sys
 import ujson as json
 import gzip
 import copy
-#import cPickle as pickle
 import math
 import os
 import ladderdev.Glicko as Glicko
-import cPickle as pickle
 
 from common import *
 from TA import *
 
-file = open('keylookup.pickle')
-keyLookup = pickle.load(file)
+file = open('keylookup.json')
+keyLookup = json.loads(file.readline())
 file.close()
 
 def getTeamsFromLog(log,mrayAllowed):

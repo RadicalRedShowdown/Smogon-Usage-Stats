@@ -275,8 +275,8 @@ def movesetCounter(filename, cutoff, teamtype, usage):
 		print separator
 	return stuff
 
-file = open('keylookup.pickle')
-keyLookup = pickle.load(file)
+file = open('keylookup.json')
+keyLookup = json.loads(file.readline())
 file.close()
 keyLookup['nothing']='Nothing'
 keyLookup['']='Nothing'

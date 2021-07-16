@@ -52,55 +52,75 @@ nmod = {'hardy': [10,10,10,10,10],
 	'careful': [10,10,10,9,11],
 	'quirky': [10,10,10,10,10]}
 	
-megas=[	['abomasnow','abomasite','snowwarning'],
-	['absol','absolite','magicbounce'],
+megas=[	['abomasnow','abomasite','slushrush'],
+	['absol','absolite','blademaster'],
 	['aerodactyl','aerodactylite','toughclaws'],
 	['aggron','aggronite','filter'],
 	['alakazam','alakazite','trace'],
+	['alcremie', 'alcremite', 'selfsufficient'],
 	['altaria','altarianite','pixilate'],
-	['ampharos','ampharosite','moldbreaker'],
-	['audino','audinite','healer'],
+	['ampharos','ampharosite','thickfat'],
+	['appletun', 'appletunite', 'contrary'],
+	['audino','audinite','regenerator'],
 	['banette','banettite','prankster'],
 	['beedrill','beedrillite','adaptability'],
 	['blastoise','blastoisinite','megalauncher'],
 	['blaziken','blazikenite','speedboost'],
+	['butterfree', 'butterfrite', 'compoundeyes'],
 	['camerupt','cameruptite','sheerforce'],
+	['centiskorch', 'centiskite', 'mountaineer'],
 	['charizard','charizarditex','toughclaws'],
 	['charizard','charizarditey','drought'],
+	['coalossal', 'coalossite', 'mountaineer'],
+	['copperajah', 'copperajite', 'sheerforce'],
 	['diancie','diancite','magicbounce'],
-	['gallade','galladite','innerfocus'],
+	['drednaw', 'drednawite', 'strongjaw'],
+	['duraludon', 'duraludonite', 'badcompany'],
+	['flapple', 'flapplite', 'dragonsmaw'],
+	['gallade','galladite','blademaster'],
+	['garbodor', 'garbodorite', 'parasiticwaste'],
 	['garchomp','garchompite','sandforce'],
 	['gardevoir','gardevoirite','pixilate'],
 	['gengar','gengarite','shadowtag'],
 	['glalie','glalitite','refrigerate'],
 	['gyarados','gyaradosite','moldbreaker'],
 	['heracross','heracronite','skilllink'],
-	['houndoom','houndoominite','solarpower'],
+	['houndoom','houndoominite','darkaura'],
 	['kangaskhan','kangaskhanite','parentalbond'],
+	['kingler', 'kinglerite', 'toughclaws'],
+	['lapras', 'laprasite', 'liquidvoice'],
 	['latias','latiasite','levitate'],
 	['latios','latiosite','levitate'],
 	['lopunny','lopunnite','scrappy'],
 	['lucario','lucarionite','adaptability'],
+	['machamp', 'machampite', 'oraoraoraora'],
 	['manectric','manectite','intimidate'],
 	['mawile','mawilite','hugepower'],
 	['medicham','medichamite','purepower'],
 	['metagross','metagrossite','toughclaws'],
 	['mewtwo','mewtwonitex','steadfast'],
 	['mewtwo','mewtwonitey','insomnia'],
+	['orbeetle', 'orbeetlite', 'magicguard'],
 	['pidgeot','pidgeotite','noguard'],
 	['pinsir','pinsirite','aerilate'],
 	['sableye','sablenite','magicbounce'],
 	['salamence','salamencite','aerilate'],
-	['sceptile','sceptilite','lightningrod'],
+	['sandaconda', 'sandacondite', 'aerilate'],
+	['sceptile','sceptilite','technician'],
 	['scizor','scizorite','technician'],
 	['sharpedo','sharpedonite','strongjaw'],
-	['slowbro','slowbronite','shellarmor'],
-	['steelix','steelixite','sandforce'],
+	['slowbro','slowbronite','regenerator'],
+	['snorlax', 'snorlaxite', 'thickfat'],
+	['steelix','steelixite','heatproof'],
 	['swampert','swampertite','swiftswim'],
+	['toxtricity', 'toxtricitite', 'punkrock'],
+	['toxtricitylowkey', 'toxtricitite', 'punkrock'],
 	['tyranitar','tyranitarite','sandstream'],
 	['venusaur','venusaurite','thickfat'],
 	['kyogre','blueorb','primordialsea'],
 	['groudon','redorb','desolateland'],
+	['dialga','adamantorb','primalarmor'],
+	['eternatus','eternamaxorb','levitate'],
 	['crucibelle','crucibellite','magicguard']]
 	
 def analyzePoke(poke):
@@ -145,7 +165,7 @@ def analyzePoke(poke):
 			return None
 
 	#moveset modifications
-	if poke['ability'] in ['purepower','hugepower']:
+	if poke['ability'] in ['purepower','hugepower','felineprowess']:
 		stalliness -= 1.0
 	if poke['item'] in ['choiceband','choicescarf','choicespecs','lifeorb']:
 		stalliness -= 0.5
@@ -159,7 +179,7 @@ def analyzePoke(poke):
 		stalliness += 1.0
 	if 'willowisp' in poke['moves']:
 		stalliness += 0.5
-	if len(set(['recover' ,'slackoff', 'healorder', 'milkdrink', 'roost', 'moonlight', 'morningsun', 'synthesis', 'wish', 'aquaring', 'rest', 'softboiled', 'swallow', 'leechseed']).intersection(poke['moves'])) != 0:
+	if len(set(['recover' ,'slackoff', 'healorder', 'milkdrink', 'roost', 'moonlight', 'morningsun', 'synthesis', 'wish', 'aquaring', 'rest', 'softboiled', 'swallow', 'leechseed', 'strengthsap']).intersection(poke['moves'])) != 0:
 		stalliness += 1.0
 	if poke['ability'] == 'regenerator':
 		stalliness += 0.5
@@ -205,7 +225,7 @@ def analyzePoke(poke):
 		stalliness -= 0.5
 	if 'psychoshift' in poke['moves']:
 		stalliness += 0.5
-	if len(set(['whirlwind', 'roar', 'circlethrow', 'dragontail']).intersection(poke['moves'])) != 0:
+	if len(set(['whirlwind', 'roar', 'circlethrow', 'dragontail', 'roaroftime']).intersection(poke['moves'])) != 0:
 		stalliness += 0.5
 	if len(set(['haze', 'clearsmog']).intersection(poke['moves'])) != 0:
 		stalliness += 0.5
@@ -301,11 +321,24 @@ def analyzeTeam(team):
 						megaspecies +='x'
 					elif poke['item'].endswith('y'):
 						megaspecies += 'y'
-					if megaspecies in ['kyogremega','groudonmega']:
+					if megaspecies == 'toxtricitylowkeymega':
+						megaspecies='toxtricitymega'
+					elif megaspecies in ['kyogremega','groudonmega','dialgamega']:
 						megaspecies=megaspecies[:-4]+'primal'
+					elif megaspecies == 'eternamaxmega':
+						megaspecies=megaspecies[:-4]+'eternamax'
 					megapoke = copy.deepcopy(poke)
 					megaspecies=megaspecies
-					megapoke['ability']=mega[2]
+					if megaspecies == 'houndoommega' and poke['ability'] == 'flashfire':
+						megapoke['ability']='solarpower'
+					elif megaspecies == 'slowbromega' and poke['ability'] == 'regenerator':
+						megapoke['ability']='battlearmor'
+					elif megaspecies == 'absolmega' and poke['ability'] == 'pressure':
+						megapoke['ability']='magicbounce'
+					elif megaspecies == 'gallademega' and poke['ability'] == 'justified':
+						megapoke['ability']='innerfocus'
+					else:
+						megapoke['ability']=mega[2]
 					stalliness += analyzePoke(megapoke)[0]
 					stalliness /= 2.0
 					break
@@ -330,6 +363,9 @@ def analyzeTeam(team):
 		if poke['ability'] in ['drizzle','primordialsea']:
 			detected = True
 			break
+		elif poke['ability'] == 'forecast' and poke['item'] == 'damprock':
+			detected = True
+			break
 		elif poke['item'] == 'damprock' and 'raindance' in poke['moves']:
 			detected = True
 			break
@@ -346,6 +382,9 @@ def analyzeTeam(team):
 	detected = False
 	for poke in team:
 		if poke['ability'] in ['drought','desolateland']:
+			detected = True
+			break
+		elif poke['ability'] == 'forecast' and poke['item'] == 'heatrock':
 			detected = True
 			break
 		elif [species,poke['item']] == ['charizard','charizarditey']:
@@ -369,6 +408,9 @@ def analyzeTeam(team):
 		if poke['ability'] == 'sandstream':
 			detected = True
 			break
+		elif poke['ability'] == 'forecast' and poke['item'] == 'smoothrock':
+			detected = True
+			break
 		elif poke['item'] == 'smoothrock' and 'sandstorm' in poke['moves']:
 			detected = True
 			break
@@ -385,6 +427,9 @@ def analyzeTeam(team):
 	detected = False
 	for poke in team:
 		if poke['ability'] == 'snowwarning':
+			detected = True
+			break
+		elif poke['ability'] == 'forecast' and poke['item'] == 'icyrock':
 			detected = True
 			break
 		elif poke['item'] == 'icyrock' and 'hail' in poke['moves']:

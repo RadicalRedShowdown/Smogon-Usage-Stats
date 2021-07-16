@@ -1,14 +1,13 @@
 import string
 import sys
 import json
-import cPickle as pickle
 from common import keyify,readTable,getFormats
 from TierUpdate import makeTable
 
 tiers = ['Uber','OU','BL','UU','BL2','RU','BL3','NU','BL4','PU']
 
-file = open('keylookup.pickle')
-keyLookup = pickle.load(file)
+file = open('keylookup.json')
+keyLookup = json.loads(file.readline())
 file.close()
 
 def getUsage(filename,col,weight,usage):

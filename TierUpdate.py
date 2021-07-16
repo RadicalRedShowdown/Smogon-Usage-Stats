@@ -1,7 +1,6 @@
 import string
 import sys
 import json
-import cPickle as pickle
 from common import keyify,readTable,getBattleFormatsData
 
 def getUsage(filename,col,weight,usage):
@@ -31,8 +30,8 @@ tiers = ['Uber','OU','BL','UU','BL2','RU','BL3','NU','BL4','PU']
 usageTiers = ['ou', 'uu', 'ru', 'nu', 'pu']
 
 def main(months):
-	file = open('keylookup.pickle')
-	keyLookup = pickle.load(file)
+	file = open('keylookup.json')
+	keyLookup = json.loads(file.readline())
 	file.close()
 
 	rise =  [0.06696700846,0.04515839608,0.03406367107][len(months)-1]

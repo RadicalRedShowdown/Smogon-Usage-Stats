@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-logFolder=/home/ps/main/logs
+logFolder=/root/pokemon-showdown/logs
 month=$(date +'%Y-%m')
 today=$(date +'%-d')
 
