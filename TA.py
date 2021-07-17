@@ -506,7 +506,7 @@ def analyzeTeam(team):
 	count = 0
 
 	for poke in team:
-		if len(set(['voltswitch','uturn','batonpass']).intersection(poke['moves'])) != 0 or poke['item'] == 'ejectbutton':
+		if len(set(['voltswitch','uturn','flipturn','batonpass']).intersection(poke['moves'])) != 0 or poke['item'] == 'ejectbutton':
 			count = count + 1
 			if count > 2:
 				break
@@ -519,7 +519,7 @@ def analyzeTeam(team):
 	for poke in team:
 		if poke['ability'] in ['magnetpull', 'arenatrap', 'shadowtag'] or len(set(['block','meanlook','spiderweb']).intersection(poke['moves'])) != 0:
 			count[0] += 1
-		elif species in ['dratini', 'dragonair', 'bagon', 'shelgon', 'axew', 'fraxure', 'haxorus', 'druddigon', 'dragonite', 'altaria', 'salamence', 'latias', 'latios', 'rayquaza', 'gible', 'gabite', 'garchomp', 'reshiram', 'zekrom', 'kyurem', 'kyuremwhite', 'kyuremblack', 'kingdra', 'vibrava', 'flygon', 'dialga', 'palkia', 'giratina', 'giratinaorigin', 'deino', 'zweilous', 'hydreigon']:
+		elif 'Dragon' in types[species]:
 			count[1] += 1
 	if count[0] > 0 and count[1] > 1:
 		tags.append('dragmag')
