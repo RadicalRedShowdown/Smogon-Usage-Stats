@@ -109,11 +109,23 @@ def getTeamsFromLog(log,mrayAllowed):
 							species +='x'
 						elif item.endswith('y'):
 							species += 'y'
-						if species in ['kyogremega','groudonmega','dialgamega']:
+						if species == 'toxtricitylowkeymega':
+							species='toxtricitymega'
+						elif species in ['kyogremega','groudonmega','dialgamega']:
 							species=species[:-4]+'primal'
 						elif species == 'eternatusmega':
 							species=species[:-4]+'eternamax'
-						ability=mega[2]
+
+						if species == 'houndoommega' and ability == 'flashfire':
+							ability='solarpower'
+						elif species == 'slowbromega' and ability == 'regenerator':
+							ability='battlearmor'
+						elif species == 'absolmega' and ability == 'pressure':
+							ability='magicbounce'
+						elif species == 'gallademega' and ability == 'justified':
+							ability='innerfocus'
+						else:
+							ability=mega[2]
 						break
 
 			if species[0] in string.lowercase or species[1] in string.uppercase:
