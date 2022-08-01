@@ -4,23 +4,22 @@ keyLookup = {}
 baseStats = {}
 types = {}
 
-for (const item in Dex.data.Items) {
-    keyLookup[item] = Dex.data.Items[item].name;
+for (const item of Dex.items.all()) {
+    keyLookup[item.id] = item.name;
 }
 
-for (const move in Dex.data.Moves) {
-    keyLookup[move] = Dex.data.Moves[move].name;
+for (const move of Dex.moves.all()) {
+    keyLookup[move.id] = move.name;
 }
 
-for (const ability in Dex.data.Abilities) {
-    keyLookup[ability] = Dex.data.Abilities[ability].name;
+for (const ability of Dex.abilities.all()) {
+    keyLookup[ability.id] = ability.name;
 }
 
-for (const pokemon in Dex.data.Pokedex) {
-    const species = Dex.data.Pokedex[pokemon];
-    baseStats[pokemon] = species.baseStats;
-    keyLookup[pokemon] = species.name;
-    types[pokemon] = species.types;
+for (const species of Dex.species.all()) {
+    baseStats[species.id] = species.baseStats;
+    keyLookup[species.id] = species.name;
+    types[species.id] = species.types;
 }
 
 for (const nature in Dex.data.Natures) {

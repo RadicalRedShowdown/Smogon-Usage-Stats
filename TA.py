@@ -69,6 +69,7 @@ megas=[	['abomasnow','abomasite','slushrush'],
 	['butterfree', 'butterfrite', 'compoundeyes'],
 	['camerupt','cameruptite','sheerforce'],
 	['centiskorch', 'centiskite', 'mountaineer'],
+	['centiskorchsevii', 'centiskitesevii', 'arenatrap'],
 	['charizard','charizarditex','toughclaws'],
 	['charizard','charizarditey','drought'],
 	['coalossal', 'coalossite', 'mountaineer'],
@@ -114,7 +115,7 @@ megas=[	['abomasnow','abomasite','slushrush'],
 	['steelix','steelixite','heatproof'],
 	['swampert','swampertite','swiftswim'],
 	['toxtricity', 'toxtricitite', 'punkrock'],
-	['toxtricitylowkey', 'toxtricitite', 'punkrock'],
+	['toxtricitylowkey', 'toxtricititelowkey', 'punkrock'],
 	['tyranitar','tyranitarite','sandstream'],
 	['venusaur','venusaurite','thickfat'],
 	['kyogre','blueorb','primordialsea'],
@@ -197,7 +198,7 @@ def analyzePoke(poke):
 		stalliness -= 1.0
 	elif len(set(['block','meanlook','spiderweb','pursuit']).intersection(poke['moves'])) != 0:
 		stalliness -= 0.5
-	if poke['ability'] in ['dryskin', 'filter', 'hydration', 'icebody', 'intimidate', 'ironbarbs', 'marvelscale', 'naturalcure', 'magicguard', 'multiscale', 'raindish', 'roughskin', 'solidrock', 'thickfat', 'unaware', 'aromaveil', 'bulletproof', 'cheekpouch', 'gooey']:
+	if poke['ability'] in ['dryskin', 'filter', 'hydration', 'icebody', 'intimidate', 'ironbarbs', 'marvelscale', 'naturalcure', 'magicguard', 'multiscale', 'raindish', 'roughskin', 'solidrock', 'thickfat', 'unaware', 'aromaveil', 'bulletproof', 'cheekpouch', 'gooey', 'blubberdefense']:
 		stalliness += 0.5
 	if poke['ability'] == 'poisonheal' and poke['item'] == 'toxicorb':
 		stalliness += 0.5
@@ -209,7 +210,7 @@ def analyzePoke(poke):
 		stalliness -= 2.0
 	elif 'shellsmash' in poke['moves']:
 		stalliness -= 1.5
-	elif len(set(['curse', 'dragondance', 'growth', 'shiftgear', 'swordsdance', 'fierydance', 'nastyplot', 'tailglow', 'quiverdance', 'geomancy']).intersection(poke['moves'])) != 0:
+	elif len(set(['curse', 'dragondance', 'growth', 'shiftgear', 'swordsdance', 'fierydance', 'nastyplot', 'tailglow', 'quiverdance', 'geomancy', 'victorydance']).intersection(poke['moves'])) != 0:
 		stalliness -= 1.0
 	elif len(set(['acupressure', 'bulkup', 'coil', 'howl', 'workup', 'meditate', 'sharpen', 'calmmind', 'chargebeam', 'agility', 'autotomize', 'flamecharge', 'rockpolish', 'doubleteam', 'minimize', 'tailwind', 'poweruppunch', 'rototiller']).intersection(poke['moves'])) != 0:
 		stalliness -= 0.5
@@ -243,7 +244,7 @@ def analyzePoke(poke):
 		stalliness -= 0.5
 	if poke['ability'] == 'harvest' or 'recycle' in poke['moves']:
 		stalliness += 1.0
-	if len(set(['jumpkick', 'doubleedge', 'submission', 'petaldance', 'hijumpkick', 'outrage', 'volttackle', 'closecombat', 'flareblitz', 'bravebird', 'woodhammer', 'headsmash', 'headcharge', 'wildcharge', 'takedown', 'dragonascent']).intersection(poke['moves'])) != 0:
+	if len(set(['jumpkick', 'doubleedge', 'submission', 'petaldance', 'hijumpkick', 'outrage', 'volttackle', 'closecombat', 'flareblitz', 'bravebird', 'woodhammer', 'headsmash', 'headcharge', 'wildcharge', 'takedown', 'dragonascent', 'headlongrush', 'chloroblast']).intersection(poke['moves'])) != 0:
 		stalliness -= 0.5
 	if len(set(['selfdestruct', 'explosion', 'destinybond', 'perishsong', 'memento', 'healingwish', 'lunardance', 'finalgambit']).intersection(poke['moves'])) != 0:
 		stalliness -= 1.0
@@ -337,6 +338,8 @@ def analyzeTeam(team):
 						megapoke['ability']='magicbounce'
 					elif megaspecies == 'gallademega' and poke['ability'] == 'justified':
 						megapoke['ability']='innerfocus'
+					elif megaspecies == 'centiskorchseviimega' and poke['ability'] == 'whitesmoke':
+						megapoke['ability']='sandforce'
 					else:
 						megapoke['ability']=mega[2]
 					stalliness += analyzePoke(megapoke)[0]
@@ -453,7 +456,7 @@ def analyzeTeam(team):
 	count = 0
 	for poke in team:
 		if 'batonpass' in poke['moves']:
-			if len(set(['acupressure', 'bellydrum', 'bulkup', 'coil', 'curse', 'dragondance', 'growth', 'honeclaws', 'howl', 'meditate', 'sharpen', 'shellsmash', 'shiftgear', 'swordsdance', 'workup', 'calmmind', 'chargebeam', 'fierydance', 'nastyplot', 'tailglow', 'quiverdance', 'agility', 'autotomize', 'flamecharge', 'rockpolish', 'doubleteam', 'minimize', 'substitute', 'acidarmor', 'barrier', 'cosmicpower', 'cottonguard', 'defendorder', 'defensecurl', 'harden', 'irondefense', 'stockpile', 'withdraw', 'amnesia', 'charge', 'ingrain']).intersection(poke['moves'])) != 0 or poke['ability'] in ['angerpoint', 'contrary', 'moody', 'moxie', 'speedboost']: #check for setup move/ability
+			if len(set(['acupressure', 'bellydrum', 'bulkup', 'coil', 'curse', 'dragondance', 'growth', 'honeclaws', 'howl', 'meditate', 'sharpen', 'shellsmash', 'shiftgear', 'swordsdance', 'workup', 'calmmind', 'chargebeam', 'fierydance', 'nastyplot', 'tailglow', 'quiverdance', 'agility', 'autotomize', 'flamecharge', 'rockpolish', 'doubleteam', 'minimize', 'substitute', 'acidarmor', 'barrier', 'cosmicpower', 'cottonguard', 'defendorder', 'defensecurl', 'harden', 'irondefense', 'stockpile', 'withdraw', 'amnesia', 'charge', 'ingrain', 'victorydance']).intersection(poke['moves'])) != 0 or poke['ability'] in ['angerpoint', 'contrary', 'moody', 'moxie', 'speedboost']: #check for setup move/ability
 				count += 1
 				if count > 1:
 					break
