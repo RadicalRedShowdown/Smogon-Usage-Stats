@@ -124,6 +124,8 @@ def getTeamsFromLog(log,mrayAllowed):
 							ability='magicbounce'
 						elif species == 'gallademega' and ability == 'justified':
 							ability='innerfocus'
+						elif species == 'centiskorchseviimega' and ability == 'whitesmoke':
+							ability='sandforce'
 						else:
 							ability=mega[2]
 						break
