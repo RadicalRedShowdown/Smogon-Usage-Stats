@@ -109,7 +109,7 @@ def getTeamsFromLog(log,mrayAllowed):
 							species +='x'
 						elif item.endswith('y'):
 							species += 'y'
-						if species == 'toxtricitylowkeymega':
+						if species == 'toxtricitylowkeymegay':
 							species='toxtricitymega'
 						elif species in ['kyogremega','groudonmega','dialgamega']:
 							species=species[:-4]+'primal'
