@@ -392,6 +392,12 @@ def LogReader(filename,tier,movesets,ratings):
 						speciesBase = 'Mimikyu'
 					elif species == 'Necrozma-Ultra':
 						speciesBase = 'Necrozma'
+					elif species == 'Zacian-Crowned':
+						speciesBase = 'Zacian'
+					elif species == 'Zamazenta-Crowned':
+						speciesBase = 'Zamazenta'
+					elif species == 'Palafin-Hero':
+						speciesBase = 'Palafin'
 					elif species.endswith('-Mega') or species.endswith('-Mega-X') or species.endswith('-Mega-Y') or species.endswith('-Primal'):
 						if species.endswith('-Mega'):
 							speciesBase = species[:-5]
@@ -438,6 +444,12 @@ def LogReader(filename,tier,movesets,ratings):
 						speciesBase = 'Mimikyu'
 					elif species == 'Necrozma-Ultra':
 						speciesBase = 'Necrozma'
+					elif species == 'Zacian-Crowned':
+						speciesBase = 'Zacian'
+					elif species == 'Zamazenta-Crowned':
+						speciesBase = 'Zamazenta'
+					elif species == 'Palafin-Hero':
+						speciesBase = 'Palafin'
 					elif species.endswith('-Mega') or species.endswith('-Mega-X') or species.endswith('-Mega-Y') or species.endswith('-Primal'):
 						if species.endswith('-Mega'):
 							speciesBase = species[:-5]
@@ -617,6 +629,12 @@ def LogReader(filename,tier,movesets,ratings):
 							speciesBase = 'Mimikyu'
 						elif species == 'Necrozma-Ultra':
 							speciesBase = 'Necrozma'
+						elif species == 'Zacian-Crowned':
+							speciesBase = 'Zacian'
+						elif species == 'Zamazenta-Crowned':
+							speciesBase = 'Zamazenta'
+						elif species == 'Palafin-Hero':
+							speciesBase = 'Palafin'
 						elif species.endswith('-Mega') or species.endswith('-Mega-X') or species.endswith('-Mega-Y') or species.endswith('-Primal'):
 							if species.endswith('-Mega'):
 								speciesBase = species[:-5]
@@ -720,6 +738,12 @@ def LogReader(filename,tier,movesets,ratings):
 							speciesBase = 'Mimikyu'
 						elif species == 'Necrozma-Ultra':
 							speciesBase = 'Necrozma'
+						elif species == 'Zacian-Crowned':
+							speciesBase = 'Zacian'
+						elif species == 'Zamazenta-Crowned':
+							speciesBase = 'Zamazenta'
+						elif species == 'Palafin-Hero':
+							speciesBase = 'Palafin'
 						elif species.endswith('-Mega') or species.endswith('-Mega-X') or species.endswith('-Mega-Y') or species.endswith('-Primal'):
 							if species.endswith('-Mega'):
 								speciesBase = species[:-5]
