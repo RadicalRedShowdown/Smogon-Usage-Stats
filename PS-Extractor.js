@@ -1,4 +1,4 @@
-const Dex = require('../pokemon-showdown/.sim-dist/dex').Dex.mod('gen8rr');
+const Dex = require('../pokemon-showdown/dist/sim/dex').Dex.mod('gen9rr');
 
 keyLookup = {}
 baseStats = {}
