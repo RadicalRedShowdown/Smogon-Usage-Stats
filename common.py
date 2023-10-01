@@ -160,6 +160,7 @@ aliases={
 	'Sinistea': ['Sinistea-Antique', 'Sinisteaantique'],
 	'Polteageist': ['Polteageist-Antique', 'Polteageistantique'],
 	'Alcremie': ['Alcremie{}'.format(trim) for trim in ("rubycream", "matchacream", "mintcream", "lemoncream", "saltedcream", "rubyswirl", "caramelswirl", "rainbowswirl", "matcha", "mint", "lemon", "salted", "caramel", "rainbow")] + ['Alcremie-{}'.format(trim.title()) for trim in ("ruby-cream", "matcha-cream", "mint-cream", "lemon-cream", "salted-cream", "ruby-swirl", "caramel-swirl", "rainbow-swirl", "matcha", "mint", "lemon", "salted", "caramel", "rainbow", "rubycream", "matchacream", "mintcream", "lemoncream", "saltedcream", "rubyswirl", "caramelswirl", "rainbowswirl",)],
+	'Tatsugiri': ['Tatsugiri-Droopy', 'Tatsugiridroopy', 'Tatsugiri-Stretchy', 'Tatsugiristretchy'],
 	'Pokestargiant': ['Pokestargiant2', 'Pokestargiantpropo1', 'Pokestargiantpropo2', 'Pokestar Giant-2', 'Pokestar Giant-PropO1', 'Pokestar Giant-PropO2'],
 	'Pokestarufo': ['Pokestarufopropu1', 'Pokestar UFO-PropU1'],
 	'Pokestarbrycenman': ['Pokestarbrycenmanprop', 'Pokestar Brycen-Man-Prop'],
